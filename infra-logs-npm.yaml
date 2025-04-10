@@ -6,6 +6,8 @@ spec:
   global:
     clusterName: "cluster"
     site: "datadoghq.com"
+    kubelet:
+      tlsVerify: false
     tags:
       - "env:test"
     credentials:
