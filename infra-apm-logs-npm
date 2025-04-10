@@ -1,0 +1,35 @@
+apiVersion: "datadoghq.com/v2alpha1"
+kind: "DatadogAgent"
+metadata:
+  name: "datadog"
+spec:
+  global:
+    clusterName: "cluster"
+    site: "datadoghq.com"
+    tags:
+      - "env:test"
+    credentials:
+      apiSecret:
+        secretName: "datadog-secret"
+        keyName: "api-key"
+  override:
+    clusterAgent:
+      image:
+        tag: "7.64.1"
+  features:
+    apm:
+      instrumentation:
+        enabled: true
+        targets:
+          - name: "default-target"
+            ddTraceVersions:
+              java: "1"
+              python: "3"
+              js: "5"
+              php: "1"
+              dotnet: "3"
+    logCollection:
+      enabled: true
+      containerCollectAll: true
+    npm:
+      enabled: true
