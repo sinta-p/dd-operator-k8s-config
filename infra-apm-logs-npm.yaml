@@ -12,6 +12,9 @@ spec:
       apiSecret:
         secretName: "datadog-secret"
         keyName: "api-key"
+    kubelet:
+      tlsVerify: false
+
   override:
     clusterAgent:
       image:
