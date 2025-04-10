@@ -6,14 +6,14 @@ spec:
   global:
     clusterName: "cluster"
     site: "datadoghq.com"
-    kubelet:
-      tlsVerify: false
     tags:
       - "env:test"
     credentials:
       apiSecret:
         secretName: "datadog-secret"
         keyName: "api-key"
+    kubelet:
+      tlsVerify: false
   features:
     logCollection:
       enabled: true
